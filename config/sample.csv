@@ -1,0 +1,25 @@
+ticker,group,name
+NVDA,Infrastructure,NVIDIA
+AMD,Infrastructure,Advanced Micro Devices
+AVGO,Infrastructure,Broadcom
+MU,Infrastructure,Micron
+ARM,Infrastructure,Arm Holdings
+MRVL,Infrastructure,Marvell Technology
+ANET,Infrastructure,Arista Networks
+DELL,Infrastructure,Dell Technologies
+ADBE,Workflow,Adobe
+CRM,Workflow,Salesforce
+NOW,Workflow,ServiceNow
+WDAY,Workflow,Workday
+TEAM,Workflow,Atlassian
+HUBS,Workflow,HubSpot
+INTU,Workflow,Intuit
+PATH,Workflow,UiPath
+CRWD,Cybersecurity,CrowdStrike
+PANW,Cybersecurity,Palo Alto Networks
+FTNT,Cybersecurity,Fortinet
+ZS,Cybersecurity,Zscaler
+OKTA,Cybersecurity,Okta
+S,Cybersecurity,SentinelOne
+TENB,Cybersecurity,Tenable
+QLYS,Cybersecurity,Qualys
