@@ -1,0 +1,42 @@
+name: Astra reproducible research
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: Acquire data only or acquire and estimate frozen design
+        required: true
+        default: acquire
+        type: choice
+        options: [acquire, analyze]
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Archive source data and provenance
+        run: python scripts/acquire.py --intraday
+      - name: Estimate locked design
+        if: inputs.phase == 'analyze'
+        run: python scripts/analyze.py
+      - name: Archive run outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-research-${{ github.run_id }}
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            data/
+            results/
+            figures/
+            protocol/
+            config/
